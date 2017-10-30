@@ -1,0 +1,9 @@
+Fuzzy_match <- function( input, configuration_table, match_col, output_col){
+  ## input: The numeric you need to fuzzy_march.
+  ## configuration_table: Configuration Table.
+  ## match_col: The col name in configuration_table, must be character format.
+  ## output_col: The col name you need to output in configuration_table, must be character format also.
+  
+  diff <- input - configuration_table[ ,match_col]
+  return( as.character( configuration_table[ length( diff[ diff >= 0]), ][ ,output_col]))
+}
